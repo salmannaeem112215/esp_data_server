@@ -1,11 +1,17 @@
 import 'package:esp_server/headers.dart';
 
 class DataResponse {
+  static const actionAdd = 'ADD';
+  static const actionLoad = 'LOAD';
+  static const actionAll = 'ALL';
+  static const actionLatest = 'LATEST';
+  static const actionDuration = 'DURATION';
+
   // latest Data
   static ApiResponse getLatestData() {
     if (DataContainer.datas.isEmpty) {
       return ApiResponse(
-          success: false, payload: Payload(message: 'No Data Present'));
+          success: false, payload: Payload(message: actionLatest));
     }
     final data = DataContainer.datas[0];
     return ApiResponse(
@@ -22,6 +28,7 @@ class DataResponse {
     return ApiResponse(
       success: true,
       payload: Payload(
+        message: actionAll,
         data: datas.map((e) => e.toJson()).toList(),
       ),
     );
@@ -51,6 +58,7 @@ class DataResponse {
     return ApiResponse(
       success: true,
       payload: Payload(
+        message: actionDuration,
         data: datas.map((e) => e.toJson()).toList(),
       ),
     );
@@ -83,7 +91,7 @@ class DataResponse {
     if (temp == -9999 || pres == -9999 || humi == -9999) {
       return ApiResponse(
         success: false,
-        payload: Payload(message: 'Invalid Values'),
+        payload: Payload(message: actionAdd),
       );
     }
 
@@ -93,7 +101,7 @@ class DataResponse {
     return ApiResponse(
       success: true,
       payload: Payload(
-        message: 'Data Updated',
+        message: actionAdd,
         data: data.toJson(),
       ),
     );

@@ -1,7 +1,3 @@
-import 'package:esp_server/api/api_response.dart';
-import 'package:esp_server/data/data_container.dart';
-import 'package:esp_server/data/data_response.dart';
-
 import '../headers.dart';
 
 class DataSocketApi {
@@ -24,13 +20,19 @@ class DataSocketApi {
       socket.stream.listen((message) async {
         final data = json.decode(message);
         print(data);
-        if (data['action'] == 'LOAD') {
-          socket.sink.add(json.encode(DataResponse.allData()));
-        } else if (data['action'] == 'ALL') {
-          socket.sink.add(json.encode(DataResponse.allData()));
-        } else if (data['action'] == 'LATEST') {
-          socket.sink.add(json.encode(DataResponse.getLatestData()));
-        } else if (data['action'] == 'DURATION') {
+        if (data['action'] == DataResponse.actionLoad) {
+          socket.sink.add(
+            json.encode(DataResponse.allData()),
+          );
+        } else if (data['action'] == DataResponse.actionAll) {
+          socket.sink.add(
+            json.encode(DataResponse.allData()),
+          );
+        } else if (data['action'] == DataResponse.actionLatest) {
+          socket.sink.add(
+            json.encode(DataResponse.getLatestData()),
+          );
+        } else if (data['action'] == DataResponse.actionDuration) {
           data['start'];
           data['end'];
           socket.sink.add(
