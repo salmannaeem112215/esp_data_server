@@ -33,7 +33,6 @@ class DataContainer {
     for (int i = datas.length - 1; i >= 0; i--) {
       if (datas[i].dateTime.isBefore(expiryTime)) {
         datas.removeAt(i);
-        print('Index Remoev');
       } else {
         break;
       }

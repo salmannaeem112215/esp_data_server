@@ -69,7 +69,6 @@ class DataResponse {
     double temp = -9999;
     double pres = -9999;
     double humi = -9999;
-    print('HIII');
     if (tempD.runtimeType == double || tempD.runtimeType == int) {
       temp = tempD;
     } else if (tempD.runtimeType == String) {
@@ -86,8 +85,6 @@ class DataResponse {
       humi = double.tryParse(humiD) ?? -9999;
     }
 
-    print('HIII2');
-
     if (temp == -9999 || pres == -9999 || humi == -9999) {
       return ApiResponse(
         success: false,
@@ -97,7 +94,6 @@ class DataResponse {
 
     final data = DataContainer.add(temp, pres, humi);
     DataSocketApi.informAll();
-    print('HIII3');
     return ApiResponse(
       success: true,
       payload: Payload(

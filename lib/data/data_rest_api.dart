@@ -24,7 +24,7 @@ class DataRestApi {
       }
     });
 
-    app.post('/<temp|.+>/<pres|.+>/<humi|.+>/',
+    app.get('/<temp|.+>/<pres|.+>/<humi|.+>/',
         (Request request, String temp, String pres, String humi) async {
       try {
         return Response.ok(

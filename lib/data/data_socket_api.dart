@@ -8,9 +8,12 @@ class DataSocketApi {
   static void informAll() {
     if (DataContainer.datas.isNotEmpty) {
       final data = DataContainer.datas[0];
-      final encodedData = json.encode(data);
+      final apiRes = ApiResponse(
+          success: true,
+          payload: Payload(message: DataResponse.actionAdd, data: data));
+      final encodedApiRes = json.encode(apiRes);
       for (var ws in _sockets) {
-        ws.sink.add(encodedData);
+        ws.sink.add(encodedApiRes);
       }
     }
   }
@@ -19,7 +22,6 @@ class DataSocketApi {
     return webSocketHandler((WebSocketChannel socket) {
       socket.stream.listen((message) async {
         final data = json.decode(message);
-        print(data);
         if (data['action'] == DataResponse.actionLoad) {
           socket.sink.add(
             json.encode(DataResponse.allData()),
