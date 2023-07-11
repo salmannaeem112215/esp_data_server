@@ -15,3 +15,4 @@ export './data/data_container.dart';
 export './data/data_response.dart';
 export './data/data_rest_api.dart';
 export './data/data_socket_api.dart';
+export './data/data_getx_storage.dart';

@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:esp_server/headers.dart';
 
 void main(List<String> arguments) async {
+  print('going To Init');
+  DataContainer.init();
+  print('Data inititlaiezed');
   // Connect and load collection
   final app = Router();
 

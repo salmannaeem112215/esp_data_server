@@ -1,12 +1,19 @@
-import 'data.dart';
+import 'package:esp_server/headers.dart';
 
 class DataContainer {
+  // get storage
+
   static List<Data> datas = [];
+
+  static Future<void> init() async {
+    datas = DataFileHelper.loadData();
+  }
 
   static Data add(double temp, double pres, double humi) {
     final data = Data(temperature: temp, pressure: pres, humidity: humi);
     datas.insert(0, data);
     removeExpiredData();
+    DataFileHelper.saveData(datas);
     return data;
   }
 
