@@ -1,3 +1,11 @@
+/*
+  1. getLatestData    // used to send only 1 Latest Data to App that is recently Added
+  2. allData          // will send List of Data to Mobile App 
+  3. getDuration      // send List of Data with applying Filter of Time A to Time B
+  4. addData          // first verifiy that Data is in Valid Range, if it is then store it in list ,
+                      // and send that Recived Data to All app 
+*/
+
 import 'package:esp_server/headers.dart';
 
 class DataResponse {

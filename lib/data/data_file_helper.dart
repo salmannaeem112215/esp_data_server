@@ -1,28 +1,12 @@
-// import 'data.dart';
-// import 'package:get_storage/get_storage.dart' as gs;
+/*
+Class For Handling Reading And Writing Data to File 
 
-// class DataGetxStorage {
-//   static final box = gs.GetStorage();
-//   // ...
-
-//   static Future<void> initStorage() async {
-//     await gs.GetStorage.init();
-//   }
-
-//   static void saveData(List<Data> datas) {
-//     box.write('datas', datas.map((data) => data.toJson()).toList());
-//   }
-
-//   static List<Data> loadData() {
-//     final List<dynamic>? dataJsonList = box.read('datas');
-//     if (dataJsonList != null) {
-//       print('Stored Data Found and Replaced');
-//       return dataJsonList.map((dataJson) => Data.fromJson(dataJson)).toList();
-//     }
-//     print('No Stored Data Found');
-//     return [];
-//   }
-// }
+1. filePath   // Address of File
+2. saveData(List<Data>)  // will take List of Data convert each Data into Json and Store it in file 
+3. List<Data> loadData() // will open file read it data is in Json format call Data.fromJson() 
+                         // constructor to created Data Object and store in List at end of function
+                         // that list will be returned
+*/
 
 import 'dart:io';
 

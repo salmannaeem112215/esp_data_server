@@ -1,3 +1,22 @@
+/*
+We have two classes
+1. APi Response 
+      - String  succes;
+      - Payload payload;
+2. Payload
+      - String  message;
+      - Json    data;
+
+// API RESPONSE 
+{
+  'success': false/true,
+  'payload': {      // Payload
+    'message':"any String as commment"
+    'data':{} // any Json Object
+  }
+}
+*/
+
 import '../headers.dart';
 
 class ApiResponse {

@@ -1,3 +1,18 @@
+/*
+Data Class 
+1. double temperature;
+2. double pressure;
+3. double humidity;
+4. DateTime dateTime;   // to store the time at which data is stored in Server 
+
+a. getDateTimeFromJson  // to Convert String to DateTime                        Use:  Convert String to DateTime
+b. Data.fromJson(Json)  // Constructor for creating Data Object from Json.      Use:  Reading Data From File
+c. toJson()             // to convert Data Object into Json.                    Use:  To Send Data in Api
+d. fromString(String temp, String pres, String humi)    
+    // no need to take DateTime because when Object Create will store time.     Use:  When Data Recived From APi 
+
+*/
+
 class Data {
   final double temperature;
   final double pressure;

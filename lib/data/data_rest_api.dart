@@ -1,5 +1,13 @@
 import 'package:esp_server/headers.dart';
 
+/*
+  Class For Handling Rest APi
+
+  1. Get All Data
+  2. Store Data
+
+*/
+
 class DataRestApi {
   DataRestApi();
 
@@ -9,20 +17,6 @@ class DataRestApi {
     app.get('/', (Request request) async {
       return Response.ok(json.encode(DataResponse.allData()));
     });
-
-    // app.get('/<hoursS|.+>/<hoursE|.+>/',
-    //     (Request request, String hoursS, String hoursE) async {
-    //   try {
-    //     return Response.ok(
-    //       json.encode(
-    //         DataResponse.getDuration(hoursS, hoursE),
-    //       ),
-    //     );
-    //   } catch (e) {
-    //     print('Error $e');
-    //     return Response.badRequest();
-    //   }
-    // });
 
     app.get('/<temp|.+>/<pres|.+>/<humi|.+>/',
         (Request request, String temp, String pres, String humi) async {

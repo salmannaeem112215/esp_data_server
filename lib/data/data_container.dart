@@ -1,3 +1,20 @@
+/*
+Class For Performing Functions on Data 
+
+1.  List<Data>    // To Store Data for 24 Hours;
+2.  init()        // call DataFileHelper which will load Data from File and Store in List;
+3.  add(doube,double,double)  // will take values and store Data Object in List at 0 index;
+                              // call function to removeExpiredData (which DateTime is Longer than 24 hours)
+4.  getDuration() // To get Data of Specific Hours
+5.  removeExpireData  // will check Data from last to start - if Data is longer than 24 hour remove  else break beacuse data is stored in Sequence
+                      //   1 2 ---------24 25 26 
+                      //   it will go from 26-1
+                      //   26 is greater than 24 hours remove it  
+                      //   25 is greater than 24 hours remove it
+                      //   24 is grater than 25 hours--- no so loop break no need to check as after that all will be less than 24 Hours
+
+*/
+
 import 'package:esp_server/headers.dart';
 
 class DataContainer {
